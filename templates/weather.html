@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>My Flask App</title>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/css/bootstrap.min.css" integrity="sha384-AysaV+vQoT3kOAXZkl02PThvDr8HYKPZhNT5h/CXfBThSRXQ6jW5DO2ekP5ViFdi" crossorigin="anonymous">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.5/js/bootstrap.min.js" integrity="sha384-BLiI7JTZm+JWlgKa0M0kGRpJbF2J8q+qreVrKBC47e3K6BW78kGLrCkeRX6I9RoK" crossorigin="anonymous"></script>
+
+	</head>
+	<body>
+		<div class="jumbotron">
+			<div class="container">
+				{% if city %}
+					<h1>The weather is {{ weather }}</h1>
+				{% else %}
+					<h1>Hello! What's your city</h1>
+					<form action="/weather" class="form-inline">
+						<div class="form-group">
+							<input type="text" name="city" class="form-control" placeholder="Enter your city">
+							<input type="submit" value="Submit" class="btn btn-primary">
+						</div>
+					</form>
+				{% endif %}
+				<a href="{{ url_for('index') }}">Home Page</a>
+				<a href="{{ url_for('about') }}">About Us</a>
+			</div><!--.container-->
+		</div><!--.jumbotron-->
+	</body>
+</html>
