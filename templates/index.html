@@ -83,7 +83,13 @@
 							</tr>
 							<tr>
 								<th>Accounts</th>
-								<th>Available From {{ profile.last_full_members_list_date }}. Next accounts due {{ profile.confirmation_statement.next_made_up_to }}</th>
+								<th>
+								{% if 'confirmation_statement' in profile %}
+									Available From {{ profile.last_full_members_list_date }}. Next accounts due {{ profile.confirmation_statement.next_made_up_to }}
+								{% else %}
+									Not Available
+								{% endif %}
+								</th>
 							</tr>
 							<tr>
 								<th>Company Status</th>
@@ -92,7 +98,7 @@
 						
 					</tbody>
 				</table>
-	 		{% endif %}
+			{% endif %}
 		</div>
 	</body>
 </html>
